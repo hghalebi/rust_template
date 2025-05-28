@@ -9,7 +9,7 @@ use clap::Parser;
 /// This is a template project - you need to modify it for your specific use case.
 /// Replace this CLI with your actual application logic.
 #[derive(Parser)]
-#[command(name = "{{project-name}}", version, about)]
+#[command(name = "my-awesome-project", version, about)]
 struct Cli {
     #[arg(short, long, action = clap::ArgAction::Count)]
     verbose: u8,
