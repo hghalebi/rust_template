@@ -1,6 +1,6 @@
 # 🦀 Template Usage Guide
 
-This directory serves as both a **working Rust project** and a **cargo-generate template**.
+This directory is a **cargo-generate template** ready for use.
 
 ## 📋 For Template Users
 
@@ -17,26 +17,13 @@ cd my-new-project
 ./post_gen.sh
 ```
 
-## 🔧 For Template Maintainers
+## 🔧 Template Status
 
-### Current State
-- `Cargo.toml` uses `name = "rust_template"` for testing
-- `Dockerfile` uses `CMD ["./target/release/rust_template"]` for testing
-- All other files are template-ready
-
-### To Publish as Template
-
-Before pushing to GitHub as a template repository, update these files:
-
-1. **Cargo.toml** - Change line 2:
-   ```toml
-   name = "{{project-name}}"
-   ```
-
-2. **Dockerfile** - Change line 18:
-   ```dockerfile
-   CMD ["./target/release/{{project-name}}"]
-   ```
+### Current State ✅
+- `Cargo.toml` uses `name = "{{project-name}}"` - Template ready
+- `Dockerfile` uses `CMD ["./target/release/{{project-name}}"]` - Template ready
+- `src/main.rs` includes Remolab ASCII header
+- All dependencies optimized (removed unused `anyhow`)
 
 ### Template Variables
 
@@ -46,16 +33,24 @@ When users run `cargo generate`, these variables will be replaced:
 
 ### Testing the Template
 
-You can test locally with:
+To test template generation locally:
 ```bash
-# Test as working project
+cargo generate --path . --name test-project
+cd test-project
 just check
 just docker-build
 just run --help
-
-# Test template generation (after making template changes)
-cargo generate --path . --name test-project
 ```
+
+### Dependencies Included
+
+**Runtime:**
+- `clap` - Command line argument parsing
+- `log` - Logging facade
+- `env_logger` - Environment-based logger
+
+**Development:**
+- `pretty_assertions` - Better test output
 
 ## 🎯 Ready-to-Use Features
 
@@ -65,4 +60,5 @@ cargo generate --path . --name test-project
 ✅ **CLI**: clap-based command line interface  
 ✅ **Logging**: env_logger with configurable verbosity  
 ✅ **Testing**: pretty_assertions for better test output  
-✅ **Automation**: GitHub repo creation script 
+✅ **Automation**: GitHub repo creation script  
+✅ **Branding**: Remolab ASCII header 
