@@ -1,3 +1,7 @@
+// ╭─────────────────────────────────────╮
+// │  Template created by Remolab       │
+// ╰─────────────────────────────────────╯
+
 use clap::Parser;
 
 /// Example CLI App
@@ -8,9 +12,8 @@ struct Cli {
     verbose: u8,
 }
 
-fn main() -> anyhow::Result<()> {
+fn main() {
     let cli = Cli::parse();
     env_logger::init();
     log::info!("Verbosity level: {}", cli.verbose);
-    Ok(())
 }

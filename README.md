@@ -8,6 +8,8 @@
 > * Docker build/run
 > * GitHub private repo creation
 > * ADHD-friendly automation 🧠
+>
+> *Template created by **Remolab***
 
 ## 🔧 What's Included
 

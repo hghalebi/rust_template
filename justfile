@@ -1,5 +1,8 @@
 set shell := ["bash", "-cu"]
 
+# Get the project name from the current directory
+project_name := `basename "$PWD"`
+
 default:
   @just --summary
 
@@ -10,7 +13,7 @@ test:
   cargo test --all
 
 lint:
-  cargo clippy --all-targets -- -D warnings
+  cargo clippy --all-targets -- -D warnings -W clippy::all -W clippy::pedantic -W clippy::nursery -A clippy::module_name_repetitions
 
 fmt-check:
   cargo fmt -- --check
@@ -23,11 +26,11 @@ check:
   just lint
   just test
 
-run:
+run *args:
   cargo run --release -- {{args}}
 
 docker-build:
-  docker build -t {{project-name}} .
+  docker build -t {{project_name}} .
 
 docker-run:
-  docker run --rm -it {{project-name}} 
+  docker run --rm -it {{project_name}} 
