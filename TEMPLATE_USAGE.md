@@ -23,7 +23,7 @@ cd my-new-project
 - `Cargo.toml` uses `name = "{{project-name}}"` - Template ready
 - `Dockerfile` uses `CMD ["./target/release/{{project-name}}"]` - Template ready
 - `src/main.rs` includes Remolab ASCII header
-- All dependencies optimized (removed unused `anyhow`)
+- Full dependency stack included for comprehensive development
 
 ### Template Variables
 
@@ -45,9 +45,15 @@ just run --help
 ### Dependencies Included
 
 **Runtime:**
+- `anyhow` - Error handling and context
 - `clap` - Command line argument parsing
-- `log` - Logging facade
 - `env_logger` - Environment-based logger
+- `log` - Logging facade
+- `rig-core` - AI/LLM framework core
+- `schemars` - JSON Schema generation
+- `serde` - Serialization/deserialization
+- `tokio` - Async runtime with full features
+- `tracing-subscriber` - Structured logging
 
 **Development:**
 - `pretty_assertions` - Better test output
@@ -58,7 +64,12 @@ just run --help
 ✅ **CI/CD**: GitHub Actions workflow  
 ✅ **Docker**: Multi-stage build with dependencies  
 ✅ **CLI**: clap-based command line interface  
-✅ **Logging**: env_logger with configurable verbosity  
+✅ **Async Runtime**: tokio with full features  
+✅ **Error Handling**: anyhow for context-rich errors  
+✅ **Serialization**: serde for JSON/YAML/etc  
+✅ **Logging**: log + env_logger + tracing-subscriber  
+✅ **AI/LLM Ready**: rig-core framework included  
+✅ **Schema Generation**: schemars for JSON schemas  
 ✅ **Testing**: pretty_assertions for better test output  
 ✅ **Automation**: GitHub repo creation script  
 ✅ **Branding**: Remolab ASCII header 
