@@ -30,7 +30,7 @@ run *args:
   cargo run --release -- {{args}}
 
 docker-build:
-  docker build -t {{project_name}} .
+  docker build -t project_name .
 
 docker-run:
-  docker run --rm -it {{project_name}} 
+  docker run --rm -it project_name 
