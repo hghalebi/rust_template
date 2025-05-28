@@ -1,0 +1,3 @@
+[template]
+name = "hamze-rust-template"
+description = "Rust template with linting, CI, Docker, GitHub automation"
